@@ -98,7 +98,7 @@ while fails < max_fails:
         print(f"¡Felicidades! Has adivinado la palabra secreta: {secret_word}")
         break 
 
-else: # si llegó aca es porque ya agoto sus intentos/fallos
+else: 
     print(f"¡Oh no! Has agotado los {max_fails} fallos.")
     print(f"La palabra secreta era: {secret_word}")
 
