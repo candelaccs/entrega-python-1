@@ -2,7 +2,7 @@ import random
 
 
 # Lista de palabras posibles
-words = ["python", "programación", "computadora", "código", "desarrollo",
+words = ["python", "programacion", "computadora", "codigo", "desarrollo",
 "inteligencia"]
 
 
@@ -43,7 +43,7 @@ elif dif == "Media":
     
 else:
      None 
-      #  word_displayed = "_" * len(secret_word) # se le asigna el tamaño de la palabra a adivinar / -------- 
+     
 
 word_displayed = ""     
 if dif == "Facil" :
