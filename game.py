@@ -32,23 +32,34 @@ print("Estoy pensando en una palabra. ¿Puedes adivinar cuál es?")
 
 if dif == "Facil":
     vocals = ["a", "e", "i", "o", "u"]
-    show_vocals = []
     for vocal in secret_word: # recorre la palabra a descifrar
         if vocal in vocals:
-            show_vocals.append(vocal)
+            guessed_letters.append(vocal)
         else:
-            show_vocals.append ("_")
-            word_displayed = "".join(show_vocals)
+            guessed_letters.append ("_")   
 elif dif == "Media":
-    first = secret_word[0] # 1er letra
-    n = len(secret_word)
-    last = secret_word[n-1] #ult letra
-    sp = n-2
-    word_displayed = first + ("_"*sp) + last    
-    #print(word_displayed)
+    guessed_letters.append(secret_word[0])
+    guessed_letters.append(secret_word[-1])
+    
 else:
-       word_displayed = "_" * len(secret_word) # se le asigna el tamaño de la palabra a adivinar / -------- 
-     
+     None 
+      #  word_displayed = "_" * len(secret_word) # se le asigna el tamaño de la palabra a adivinar / -------- 
+
+word_displayed = ""     
+if dif == "Facil" :
+    for l in secret_word:
+        if l in guessed_letters:
+            word_displayed += l
+        else:
+            word_displayed += "_" 
+elif dif == "Media":
+     for l in secret_word:
+        if l in guessed_letters:
+            word_displayed += l
+        else:
+            word_displayed += "_" 
+else:
+    word_displayed = "_" * len(secret_word)
 
 # Mostrar la palabra parcialmente adivinada
 print(f"Palabra: {word_displayed}")
@@ -81,9 +92,10 @@ while fails < max_fails:
 
 
     # Mostrar la palabra parcialmente adivinada
-    letters = [] 
+    letters = []
+
     for letter in secret_word: # recorre la palabra a adivinar
-        if letter in guessed_letters:
+        if letter in guessed_letters :
             letters.append(letter) # si la letra esta en la lista de letras adivinadas, la agrega al final de la nueva lista letters
         else:
             letters.append("_") # sino hace un -
